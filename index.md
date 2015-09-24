@@ -114,14 +114,19 @@ Options:
     "changelogCommand": "git log --pretty=format:'* %s (%h)' [REV_RANGE]",
     "requireCleanWorkingDir": false,
     "src": {
-        "pushRepo": null
+        "pushRepo": null,
+        "beforeStartCommand": false,
+        "beforeStageCommand": false,
+        "afterReleaseCommand": false
     },
     "dist": {
         "repo": false,
         "stageDir": ".stage",
         "baseDir": "dist",
         "files": ["**/*"],
-        "pkgFiles": null
+        "pkgFiles": null,
+        "beforeStageCommand": false,
+        "afterReleaseCommand": false
     },
     "npm": {
         "publish": false,
@@ -142,6 +147,7 @@ Notes:
 
 * If `src.pushRepo` has a falsey value, just `git push` is used. Otherwise, it's the url or name of a remote in `git push <src.pushRepo>`.
 * If `dist.pkgFiles` has a falsey value, it will take the value of `pkgFiles`.
+* The `after*/before*` commands are executed from the root/working directory of the source or distribution repository. The `beforeStageCommand` is executed before files are staged for commit, and after a version bump.
 
 ### Distribution Repository
 
