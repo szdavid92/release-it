@@ -73,7 +73,7 @@ release-it --github.releaseName="Awesome Ants"
 ### Help
 
 ```
-$ release --help
+$ release-it --help
 Release It! v2.1.0
 
 Usage: release <increment> [options]
